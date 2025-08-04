@@ -1,1 +1,22 @@
-
+This paper collects and analyzes Chinese consumer blog postings discussing Battery Electric
+Vehicles (BEV) manufactured by foreign companies for the purpose of conducting a market
+analysis and providing recommendations for companies looking to enter the Chinese Electric
+Vehicle (EV) market. To accomplish this, the paper utilizes a web scraping program in Python to
+collect text data from the Chinese website Autohome pertaining to several different EV models
+currently available in China. Once the text data is collected, the frequencies of the usages of
+certain words representing factors affecting EV adoption intention are measured in each posting,
+with the resulting cross-sectional data being used to conduct a principal component analysis
+(PCA). The results of the PCA are used to generate indices which are run in a regression with
+stock returns over the three-month period following each blog posting. The results of the
+regression are then used to extrapolate key points and develop a market assessment addressing
+several important issues, including the general viability of the Chinese EV market for foreign
+companies, important considerations for those looking to enter the market, and suggestions for
+future marketing campaigns. In general, the results of the study show that demographic and
+aesthetic factors can play an especially important role in facilitating EV adoption in the Chinese
+market, with monetary and market factors being relatively less important. The findings also
+indicate that fake blog posts could be a threat to the viability of these studies, and that developing
+a more complex algorithm to eliminate these observations could be beneficial. Other than this
+practical contribution, the paper also demonstrates how web scraping programs can be used to
+study this subject in the future. The use of these programs provides the opportunity for companies
+to access consumers’ revealed preferences presented in text information online, allowing for more
+accurate market information to be collected.
