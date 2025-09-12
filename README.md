@@ -5,4 +5,4 @@
 
 <img width="478" height="596" alt="Screenshot 2025-09-08 at 8 17 46 PM" src="https://github.com/user-attachments/assets/f726ed40-30c0-401e-88f4-764f857b3c01" />
 
-This project was developed using Selenium 3.141.0. Update to Selenium 4+ requires migration of element selection methods.
+It should be noted that this project was developed using Selenium 3.141.0. Update to Selenium 4+ requires migration of element selection methods.
