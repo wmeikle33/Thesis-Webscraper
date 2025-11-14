@@ -2,17 +2,6 @@
 # coding: utf-8
 
 
-from selectorlib import Extractor
-import os
-import csv
-import re
-import json
-import scrapy
-import collections
-import xlsxwriter
-from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
-
 def create_directory(folder_name):
     if not os.path.exists(folder_name):
         os.makedirs(folder_name)
