@@ -16,3 +16,5 @@ python -m thesis_scraper --help
 
 It should be noted that this project was developed using Selenium 3.141.0. Update to Selenium 4+ requires migration of element selection methods.
 
+# Expansions
+
