@@ -18,8 +18,6 @@ The project is organized into the following directories:
 ├── test/           # Automated tests (unit, integration)
 ├── build/          # Compiled output files (usually excluded from git)
 ├── .github/        # GitHub specific configurations (workflows, templates)
-├── assets/         # Static images and other assets
-├── tools/          # Utility and automation scripts
 ├── LICENSE         # Project license file
 └── README.md       # The main information file (this file)
 ```
