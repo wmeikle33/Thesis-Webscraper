@@ -13,7 +13,7 @@ source .venv/bin/activate  # Windows: .\.venv\Scripts\Activate.ps1
 pip install -U pip
 pip install -r requirements.txt
 
-## Repository Structure
+### Repository Structure
 
 The project is organized into the following directories:
 
