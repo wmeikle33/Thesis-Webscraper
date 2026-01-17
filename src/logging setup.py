@@ -24,7 +24,6 @@ def setup_logging(log_path="logs/scraper.jsonl", level=logging.INFO):
             }
             if record.exc_info:
                 base["stack"] = self.formatException(record.exc_info)
-            # attach arbitrary key-values via extra={"kv": {...}}
             if hasattr(record, "kv"):
                 base.update(record.kv)
             return dumps(base, ensure_ascii=False)
