@@ -1,11 +1,17 @@
-# Quickstart
+## Quickstart
 
-git clone ...
+### Prerequisites
+- Python 3.10+
+- Chrome/Chromium (Selenium will use it)
+
+### Install
+```bash
+git clone https://github.com/wmeikle33/Thesis-Webscraper.git
 cd Thesis-Webscraper
 python -m venv .venv
-source .venv/bin/activate   # or .venv\Scripts\activate on Windows
+source .venv/bin/activate  # Windows: .\.venv\Scripts\Activate.ps1
+pip install -U pip
 pip install -r requirements.txt
-python -m thesis_scraper --help
 
 ## Repository Structure
 
