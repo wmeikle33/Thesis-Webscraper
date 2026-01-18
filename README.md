@@ -23,7 +23,7 @@ The project is organized into the following directories:
 .
 ├── src/            # Source code for the application
 ├── docs/           # Project documentation and guides
-├── test/           # Automated tests (unit, integration)
+├── tests/           # Automated tests (unit, integration)
 ├── build/          # Compiled output files (usually excluded from git)
 ├── .github/        # GitHub specific configurations (workflows, templates)
 ├── LICENSE         # Project license file
