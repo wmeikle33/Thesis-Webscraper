@@ -1,4 +1,4 @@
-## Quickstart
+# Quickstart
 
 ### Prerequisites
 - Python 3.10+
