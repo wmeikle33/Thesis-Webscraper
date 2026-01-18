@@ -23,9 +23,9 @@ posts.csv — forum post-level data
 comments.csv — comment-level data (if applicable)
 run_metadata.json — run info (timestamp, args, counts, errors)
 
-## Schema
+# Schema
 
-# posts.csv
+## posts.csv
 
 post_id (string) — unique ID (from URL or page)
 url (string)
@@ -36,7 +36,7 @@ created_at (string / ISO timestamp if available)
 scraped_at (string / ISO timestamp)
 source (string) — e.g., autohome
 
-# comments.csv
+## comments.csv
 
 post_id (string) — foreign key to posts.csv
 comment_id (string)
