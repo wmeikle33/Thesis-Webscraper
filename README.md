@@ -23,6 +23,24 @@ posts.csv — forum post-level data
 comments.csv — comment-level data (if applicable)
 run_metadata.json — run info (timestamp, args, counts, errors)
 
+Schema
+posts.csv
+post_id (string) — unique ID (from URL or page)
+url (string)
+title (string, UTF-8)
+body (string, UTF-8)
+author (string)
+created_at (string / ISO timestamp if available)
+scraped_at (string / ISO timestamp)
+source (string) — e.g., autohome
+comments.csv
+post_id (string) — foreign key to posts.csv
+comment_id (string)
+comment_text (string, UTF-8)
+comment_author (string)
+comment_created_at (string)
+scraped_at (string)
+
 ## Repository Structure
 
 The project is organized into the following directories:
