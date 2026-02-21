@@ -79,3 +79,5 @@ It should be noted that this project was developed using Selenium 3.141.0 and su
 
 # Expansions
 
+In terms of expansions, possible ideas include incorporating other vocabulary works, or researching other websites.
+
