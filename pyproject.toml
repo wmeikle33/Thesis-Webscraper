@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thesis-webscraper"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+  "typer>=0.12",
+  # keep your existing deps here too (selenium, pandas, etc.)
+]
+
+[project.scripts]
+thesis-webscraper = "thesis_webscraper.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
