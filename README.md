@@ -29,14 +29,14 @@ run_metadata.json — run info (timestamp, args, counts, errors)
 
 ```bash
 
--post_id (string) — unique ID (from URL or page)
--url (string)
--title (string, UTF-8)
--body (string, UTF-8)
--author (string)
--created_at (string / ISO timestamp if available)
--scraped_at (string / ISO timestamp)
--source (string) — e.g., autohome
+post_id (string) — unique ID (from URL or page)
+url (string)
+title (string, UTF-8)
+body (string, UTF-8)
+author (string)
+created_at (string / ISO timestamp if available)
+scraped_at (string / ISO timestamp)
+source (string) — e.g., autohome
 
 ```
 
