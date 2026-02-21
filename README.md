@@ -27,6 +27,8 @@ run_metadata.json — run info (timestamp, args, counts, errors)
 
 ## posts.csv
 
+'''
+
 -post_id (string) — unique ID (from URL or page)
 -url (string)
 -title (string, UTF-8)
@@ -35,6 +37,8 @@ run_metadata.json — run info (timestamp, args, counts, errors)
 -created_at (string / ISO timestamp if available)
 -scraped_at (string / ISO timestamp)
 -source (string) — e.g., autohome
+
+'''
 
 ## comments.csv
 
