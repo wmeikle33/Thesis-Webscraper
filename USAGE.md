@@ -16,7 +16,7 @@ pip install -e .
 cp .env.example .env  # then edit .env
 
 ## 5) Run a short scrape in headless mode
-python -m src.main --start-url "https://example.com/list" --pages 3 --out data/autohome.parquet
+thesis-webscraper run --start-url "https://example.com/list" --pages 3 --out data/autohome.parquet
 If your entry point isn’t src/main.py, replace the command accordingly (e.g., python -m src.scraper or python src/main.py ...).
 Requirements
 Python: 3.10 or newer
