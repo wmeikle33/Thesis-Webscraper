@@ -1,21 +1,21 @@
-## Usage
+# Usage
 This project is a Selenium-based scraper used for a master’s thesis to collect blog posts (title/body/comments) from Autohome (and similar sites) and write them to disk for downstream analysis.
 Heads-up: The original project targeted Selenium 3. If you’re on Selenium 4, use By.* locators and explicit waits. See the Troubleshooting section.
 Quick start
-# 1) Clone and enter the project
+## 1) Clone and enter the project
 git clone https://github.com/wmeikle33/Thesis-Webscraper.git
 cd Thesis-Webscraper
 
-# 2) Create & activate a virtual environment (Python 3.10+ recommended)
+## 2) Create & activate a virtual environment (Python 3.10+ recommended)
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -U pip
 pip install -e .
 
-# 4) (Optional) Create a .env to configure polite crawling & output paths
+## 4) (Optional) Create a .env to configure polite crawling & output paths
 cp .env.example .env  # then edit .env
 
-# 5) Run a short scrape in headless mode
+## 5) Run a short scrape in headless mode
 python -m src.main --start-url "https://example.com/list" --pages 3 --out data/autohome.parquet
 If your entry point isn’t src/main.py, replace the command accordingly (e.g., python -m src.scraper or python src/main.py ...).
 Requirements
@@ -27,22 +27,22 @@ If you must stay on Selenium 3, you’ll need a matching WebDriver binary on PAT
 Configuration
 You can configure most behavior via CLI flags or a .env file. The repo includes a sample:
 .env.example
-# Politeness / performance
+## Politeness / performance
 REQUEST_DELAY_MS=1200        # base delay between requests
 RANDOM_JITTER=0.4            # add ±40% jitter to delays
 MAX_RETRIES=2                # retry list/detail fetches
 HEADLESS=1                   # 1=headless, 0=headed
 BROWSER=chrome               # chrome|edge|firefox
 
-# Targeting
+## Targeting
 START_URL=https://example.com/list
 PAGES=10
 
-# Output
+## Output
 OUTPUT_PATH=data/autohome.parquet
 SAVE_RAW_HTML=0              # 1 to also save raw HTML per page (debug)
 
-# Logging
+## Logging
 LOG_LEVEL=INFO
 LOG_FILE=logs/scraper.jsonl
 Environment variables are optional—everything can be passed as flags.
@@ -113,10 +113,10 @@ Unit tests should feed stored HTML into your parse functions (no live web access
 Troubleshooting
 I get AttributeError: 'WebDriver' object has no attribute 'find_element_by_*'
 You’re on Selenium 4. Replace legacy calls like:
-# old (Selenium 3)
+## old (Selenium 3)
 el = driver.find_element_by_css_selector("div.post-content")
 with:
-# new (Selenium 4)
+## new (Selenium 4)
 from selenium.webdriver.common.by import By
 el = driver.find_element(By.CSS_SELECTOR, "div.post-content")
 Use explicit waits:
