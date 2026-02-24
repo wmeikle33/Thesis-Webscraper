@@ -1,4 +1,4 @@
-Usage
+## Usage
 This project is a Selenium-based scraper used for a master’s thesis to collect blog posts (title/body/comments) from Autohome (and similar sites) and write them to disk for downstream analysis.
 Heads-up: The original project targeted Selenium 3. If you’re on Selenium 4, use By.* locators and explicit waits. See the Troubleshooting section.
 Quick start
