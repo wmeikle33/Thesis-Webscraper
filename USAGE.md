@@ -8,14 +8,9 @@ cd Thesis-Webscraper
 
 # 2) Create & activate a virtual environment (Python 3.10+ recommended)
 python -m venv .venv
-# macOS/Linux
-source .venv/bin/activate
-# Windows (Powershell)
-.venv\Scripts\Activate.ps1
-
-# 3) Install dependencies
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -U pip
-pip install -r requirements.txt
+pip install -e .
 
 # 4) (Optional) Create a .env to configure polite crawling & output paths
 cp .env.example .env  # then edit .env
