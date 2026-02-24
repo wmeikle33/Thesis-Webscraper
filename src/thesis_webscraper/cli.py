@@ -1,42 +1,73 @@
+from __future__ import annotations
+
+from pathlib import Path
+import json
 import typer
-from typing import Optional
-from .settings import Settings
-from .scraper import run_scrape
+from rich import print
+from rich.console import Console
 
-app = typer.Typer(add_completion=False)
+from thesis_webscraper.runner import run_scrape
+from thesis_webscraper.config import ScrapeConfig
 
-@app.callback(no_args_is_help=True)
-def main():
-    """Thesis Webscraper — CLI + .env config"""
+app = typer.Typer(add_completion=False, help="Thesis Webscraper CLI")
+console = Console()
 
 @app.command()
-def scrape(
-    start_url: Optional[str] = typer.Option(None, help="Start URL"),
-    pages: Optional[int] = typer.Option(None, help="Number of pages to crawl"),
-    headless: Optional[bool] = typer.Option(None, help="Run browser headless"),
-    delay_ms: Optional[int] = typer.Option(None, help="Base delay (ms) between actions"),
-    jitter_ms: Optional[int] = typer.Option(None, help="Random jitter (ms) added to delay"),
-    out_path: Optional[str] = typer.Option(None, help="Output file (.parquet/.csv)"),
-    log_jsonl: Optional[str] = typer.Option(None, help="Structured log file"),
+def run(
+    config: Path = typer.Option(..., "--config", "-c", exists=True, readable=True, help="Path to config JSON/YAML"),
+    out_dir: Path = typer.Option(Path("data"), "--out-dir", "-o", help="Output directory"),
+    headless: bool = typer.Option(True, "--headless/--no-headless", help="Run browser headless"),
+    max_pages: int = typer.Option(0, "--max-pages", help="0 means no limit"),
+    delay_min: float = typer.Option(1.0, "--delay-min", help="Min delay between actions (seconds)"),
+    delay_max: float = typer.Option(3.0, "--delay-max", help="Max delay between actions (seconds)"),
+    resume: bool = typer.Option(True, "--resume/--no-resume", help="Resume from checkpoint if present"),
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose logging"),
 ):
     """
-    Run the scraper. CLI options override .env and defaults.
+    Run the scraper using a config file and write outputs to out_dir.
+    Produces posts.csv, comments.csv, run_metadata.json (and optionally checkpoints).
     """
-    s = Settings()  # loads .env automatically (pydantic) or Settings.from_env() if dataclass
-    # Override with CLI if provided
-    if start_url is not None: s.start_url = start_url
-    if pages is not None: s.pages = pages
-    if headless is not None: s.headless = headless
-    if delay_ms is not None: s.delay_ms = delay_ms
-    if jitter_ms is not None: s.jitter_ms = jitter_ms
-    if out_path is not None: s.out_path = out_path
-    if log_jsonl is not None: s.log_jsonl = log_jsonl
+    out_dir.mkdir(parents=True, exist_ok=True)
 
-    typer.echo(f"[config] {s}")
-    run_scrape(s)
+    cfg = ScrapeConfig.from_file(config)
+    cfg.headless = headless
+    cfg.max_pages = max_pages or None
+    cfg.delay_min = delay_min
+    cfg.delay_max = delay_max
+    cfg.resume = resume
+    cfg.verbose = verbose
+    cfg.out_dir = out_dir
 
-def run():
+    result = run_scrape(cfg)
+
+    # Print a human-friendly summary
+    print("[bold green]Done![/bold green]")
+    print(f"Posts: {result.posts_count}")
+    print(f"Comments: {result.comments_count}")
+    print(f"Output: {out_dir.resolve()}")
+
+    # Optional: always write a machine-readable summary
+    (out_dir / "run_summary.json").write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
+
+
+@app.command()
+def validate(
+    config: Path = typer.Option(..., "--config", "-c", exists=True, readable=True),
+):
+    """Validate config and environment (drivers, credentials presence, etc.)."""
+    cfg = ScrapeConfig.from_file(config)
+    problems = cfg.validate_environment()
+    if problems:
+        print("[bold red]Validation failed:[/bold red]")
+        for p in problems:
+            print(f"- {p}")
+        raise typer.Exit(code=2)
+    print("[bold green]Validation OK[/bold green]")
+
+
+def main():
     app()
 
+
 if __name__ == "__main__":
-    run()
+    main()
