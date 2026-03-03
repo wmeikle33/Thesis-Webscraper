@@ -48,7 +48,7 @@ LOG_FILE=logs/scraper.jsonl
 Environment variables are optional—everything can be passed as flags.
 Running
 Basic scrape
-python -m src.main \
+thesis-webscraper run \
   --start-url "https://example.com/list" \
   --pages 50 \
   --out data/autohome.parquet \
@@ -57,7 +57,7 @@ python -m src.main \
   --jitter 0.4
 From a list of detail URLs (CSV/JSONL)
 If you already have a file of post URLs:
-python -m src.main \
+thesis-webscraper run \
   --urls-file data/urls.csv \
   --out data/autohome.parquet
 Common flags
