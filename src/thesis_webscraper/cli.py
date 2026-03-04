@@ -38,7 +38,7 @@ def run(
     cfg.verbose = verbose
     cfg.out_dir = out_dir
 
-    result = run_scrape(cfg)
+    result = scrape(cfg)
 
     # Print a human-friendly summary
     print("[bold green]Done![/bold green]")
