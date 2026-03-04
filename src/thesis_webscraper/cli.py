@@ -7,7 +7,7 @@ from rich import print
 from rich.console import Console
 
 from scraper import scrape
-from thesis_webscraper.config import ScrapeConfig
+from config import ScrapeConfig
 
 app = typer.Typer(add_completion=False, help="Thesis Webscraper CLI")
 console = Console()
