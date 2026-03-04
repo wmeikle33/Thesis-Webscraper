@@ -4,6 +4,9 @@
 - Python 3.10+
 - Chrome/Chromium (Selenium will use it)
 
+For full instructions on how to run the scraper, configuration options, and examples, see:
+➡️ [Usage Guide](USAGE.md)
+
 ### Install
 ```bash
 git clone https://github.com/wmeikle33/Thesis-Webscraper.git
