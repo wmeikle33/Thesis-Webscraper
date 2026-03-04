@@ -15,18 +15,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 logger = logging.getLogger(__name__)
 
-
-@dataclass(frozen=True)
-class ScrapeConfig:
-    base_url: str
-    headless: bool = True
-    page_load_timeout_s: int = 30
-    wait_timeout_s: int = 15
-    min_delay_s: float = 1.0
-    max_delay_s: float = 2.5
-    max_retries: int = 3
-
-
 @dataclass(frozen=True)
 class Listing:
     url: str
