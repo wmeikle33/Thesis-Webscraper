@@ -1,4 +1,4 @@
-from src.parser import parse_list
+from src.thesis_webscraper.parser import parse_list
 
 def test_parse_list_basic(read_html):
     html = read_html("list_page.html")
@@ -9,7 +9,7 @@ def test_parse_list_basic(read_html):
 
 # tests/unit/test_rate_limit.py
 import time
-from src.util import polite_sleep
+from src.thesis_webscraper.util import polite_sleep
 
 def test_polite_sleep_jitter(monkeypatch):
     slept = []
