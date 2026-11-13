@@ -93,11 +93,14 @@ thesis-webscraper run \
 ## What it outputs
 
 After a successful run, the scraper writes data to:
+
+'''
 ./data/ (default output directory)
 posts.csv — forum post-level data
 comments.csv — comment-level data (if applicable)
 run_metadata.json — run info (timestamp, args, counts, errors)
 
+'''
 # Schema
 
 ## posts.csv
