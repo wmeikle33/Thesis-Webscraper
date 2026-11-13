@@ -8,7 +8,7 @@ import typer
 from rich import print
 from thesis_webscraper.config import SECTION_URLS
 from thesis_webscraper.config import ScrapeConfig
-from thesis_webscraper.scraper import scrape
+from scraping.crawler import scrape
 
 app = typer.Typer(add_completion=False, help="Thesis Webscraper CLI")
 
