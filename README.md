@@ -21,6 +21,7 @@ flowchart TD
     I --> J[posts.csv]
     I --> K[comments.csv]
     I --> L[run_metadata.json]
+    P --> Q[clean text]
 
 ```
 
