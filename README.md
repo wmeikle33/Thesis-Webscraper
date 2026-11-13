@@ -84,7 +84,9 @@ thesis-webscraper run \
    Records are normalized into a stable schema, keyed by post and comment identifiers to reduce duplicate rows.
 
 4. **Output writing**  
-   Structured records are written to CSV, and run metadata is saved for traceability and reproducibility.\
+   Structured records are written to CSV, and run metadata is saved for traceability and reproducibility.
+   
+6. **NLP Analysis**
 
 ## What it outputs
 
