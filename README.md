@@ -87,6 +87,8 @@ thesis-webscraper run \
    Structured records are written to CSV, and run metadata is saved for traceability and reproducibility.
    
 6. **NLP Analysis**
+   
+8. **PCA Analysis**
 
 ## What it outputs
 
