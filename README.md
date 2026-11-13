@@ -99,6 +99,7 @@ After a successful run, the scraper writes data to:
 posts.csv — forum post-level data
 comments.csv — comment-level data (if applicable)
 run_metadata.json — run info (timestamp, args, counts, errors)
+model_comparison.csv
 
 ```
 # Schema
