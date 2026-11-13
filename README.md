@@ -22,6 +22,7 @@ flowchart TD
     I --> K[comments.csv]
     I --> L[run_metadata.json]
     P --> Q[clean text]
+    Q --> R[tokenize]
 
 ```
 
