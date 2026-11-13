@@ -23,6 +23,9 @@ flowchart TD
     I --> L[run_metadata.json]
     P --> Q[clean text]
     Q --> R[tokenize]
+    R --> S[sentiment analysis]
+    S --> T[keyword analysis]
+    T --> U[feature matrix generation] 
 
 ```
 
