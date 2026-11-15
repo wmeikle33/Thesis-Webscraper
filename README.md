@@ -74,21 +74,29 @@ thesis-webscraper run \
 
 ## How it works
 
-1. **List page parsing**  
-   The scraper opens forum or listing pages and collects candidate post URLs.
+1. **List Page Parsing**  
+   The scraper opens automotive forum or listing pages and collects candidate post URLs for further processing.
 
-2. **Detail page parsing**  
-   Each post page is loaded in Selenium, and the scraper extracts post-level fields and any visible comments.
+2. **Detail Page Parsing**  
+   Each post page is loaded using Selenium, and the scraper extracts post-level information, including titles, content, timestamps, and available comments.
 
-3. **Deduplication and normalization**  
-   Records are normalized into a stable schema, keyed by post and comment identifiers to reduce duplicate rows.
+3. **Data Validation, Deduplication, and Normalization**  
+   Scraped records are validated, duplicates are removed using post and comment identifiers, and data is transformed into a consistent schema for downstream processing.
 
-4. **Output writing**  
-   Structured records are written to CSV, and run metadata is saved for traceability and reproducibility.
-   
-6. **NLP Analysis**
-   
-8. **PCA Analysis**
+4. **Data Storage and Metadata Tracking**  
+   Structured records are saved to CSV or other supported formats. Scraping metadata, including timestamps, source information, and execution details, is recorded to support traceability and reproducibility.
+
+5. **NLP Preprocessing and Feature Extraction**  
+   Chinese automotive forum discussions undergo text cleaning, terminology normalization, tokenization, and optional stopword removal. Keyword extraction, sentiment analysis, and text feature generation are then performed to quantify consumer discussions about electric vehicles.
+
+6. **Feature Engineering and Principal Component Analysis (PCA)**  
+   NLP-derived features are aggregated by company and time period, combined into a numerical feature matrix, and standardized. PCA is applied to reduce dimensionality, identify major patterns in consumer discussions, and generate principal components for subsequent analysis.
+
+7. **Regression Analysis and Model Evaluation**  
+   Principal Component Regression (PCR) and alternative regression models are used to examine relationships between consumer discussion features and automotive stock returns. Model performance is evaluated using regression metrics, statistical diagnostics, and time-series validation.
+
+8. **Results Interpretation and Visualization**  
+   PCA loadings, explained variance, regression coefficients, and model diagnostics are analyzed to interpret the relationships between consumer discussions and financial outcomes. Results are summarized through visualizations and statistical reports.
 
 ## What it outputs
 
