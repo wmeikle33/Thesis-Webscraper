@@ -9,24 +9,38 @@ This project scrapes text data from the Chinese website Autohome for thesis rese
 
 ```mermaid
 flowchart TD
-    A[Input: list page URLs] --> B[Load dynamic pages with Selenium]
-    B --> C[Parse list pages]
-    C --> D[Collect thread/detail links]
-    D --> E[Scrape detail pages]
-    E --> F[Extract post-level data]
-    E --> G[Extract comment-level data]
-    F --> H[Normalize schema]
-    G --> H
-    H --> I[Deduplicate by IDs / keys]
-    I --> J[posts.csv]
-    I --> K[comments.csv]
-    I --> L[run_metadata.json]
-    P --> Q[clean text]
-    Q --> R[tokenize]
-    R --> S[sentiment analysis]
-    S --> T[keyword analysis]
-    T --> U[feature matrix generation] 
+    A[Forum URLs] --> B[Selenium Web Scraping]
+    B --> C[Extract Posts and Comments]
+    C --> D[Validation and Deduplication]
+    D --> E[(Structured Data and Metadata)]
 
+    E --> F[Text Cleaning and Normalization]
+
+    F --> G[Tokenization and Stopword Filtering]
+    G --> H[Keywords and TF-IDF]
+    F --> I[Sentiment Analysis]
+    F --> J[Text Embeddings]
+
+    H --> K[NLP Feature Engineering]
+    I --> K
+    J --> K
+
+    K --> L[Aggregate by Brand and Date]
+    M[Financial Market Data] --> N[Calculate Stock Returns]
+
+    L --> O[Align NLP Features and Stock Returns]
+    N --> O
+
+    O --> P[Chronological Train/Test Split]
+    P --> Q[Feature Standardization]
+    Q --> R[Principal Component Analysis]
+
+    R --> S[Principal Component Regression]
+    Q --> T[Alternative Regression Models]
+
+    S --> U[Evaluation and Diagnostics]
+    T --> U
+    U --> V[Interpretation and Visualization]
 ```
 
 # Quickstart
